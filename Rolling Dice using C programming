@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+// Function to print the dice face
+void printDice(int number) {
+    switch (number) {
+        case 1:
+            printf(" ------- \n");
+            printf("|       |\n");
+            printf("|   *   |\n");
+            printf("|       |\n");
+            printf(" ------- \n");
+            break;
+        case 2:
+            printf(" ------- \n");
+            printf("| *     |\n");
+            printf("|       |\n");
+            printf("|     * |\n");
+            printf(" ------- \n");
+            break;
+        case 3:
+            printf(" ------- \n");
+            printf("| *     |\n");
+            printf("|   *   |\n");
+            printf("|     * |\n");
+            printf(" ------- \n");
+            break;
+        case 4:
+            printf(" ------- \n");
+            printf("| *   * |\n");
+            printf("|       |\n");
+            printf("| *   * |\n");
+            printf(" ------- \n");
+            break;
+        case 5:
+            printf(" ------- \n");
+            printf("| *   * |\n");
+            printf("|   *   |\n");
+            printf("| *   * |\n");
+            printf(" ------- \n");
+            break;
+        case 6:
+            printf(" ------- \n");
+            printf("| *   * |\n");
+            printf("| *   * |\n");
+            printf("| *   * |\n");
+            printf(" ------- \n");
+            break;
+        default:
+            printf("Invalid number\n");
+            break;
+    }
+}
+
+// Main function to simulate dice rolling
+int main() {
+    srand(time(0)); // Seed the random number generator
+
+    char choice;
+    int rollNumber = 1;
+
+    printf("Welcome to the Dice Rolling Simulator!\n");
+
+    do {
+        printf("\nRoll Number: %d\n", rollNumber++);
+        int diceRoll = (rand() % 6) + 1; // Generate a random number between 1 and 6
+        printDice(diceRoll);
+
+        printf("\nDo you want to roll again? (y/n): ");
+        scanf(" %c", &choice);
+    } while (choice == 'y' || choice == 'Y');
+
+    printf("Thanks for playing!\n");
+
+    return 0;
+}
